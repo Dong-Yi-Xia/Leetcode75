@@ -22,15 +22,32 @@ var isSubsequence = function(s, t) {
     if(s.length > t.length) return false
     if(s.length === 0) return true
     
-    let position = 0
+    let count = 0
     
     for(let i=0; i<t.length; i++){
-        if(s[position] === t[i]){
-            position++
+        if(s[count] === t[i]){
+            count++
         }
         
-        if(position === s.length) return true
+        if(count === s.length) return true
     }
     
     return false
+};
+
+
+
+
+var isSubsequence = function(s, t) {
+    let left = 0
+    let right = 0
+    
+    while(right < t.length){
+        if(left < s.length && s[left] === t[right]){
+            left++
+        }
+        right++
+    }
+
+    return left === s.length
 };
